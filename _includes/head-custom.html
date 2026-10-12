@@ -17,6 +17,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZ0lEQVR4nGN8ZGfxn2EAAdNAWs7AwMDAAmOI9rDgU0d18LrkDwMDw2AKARhwE/KgqYW73u1A4Q94CIw6YNQBow4YdcCoA0YdMOqAUQeMOmDUAaMOwOgXoLfbaQ0GTwjA+mr0BgMeAgBmQw1ao13zcQAAAABJRU5ErkJggg==">
 <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
 
-<!-- Ink, matching the site's dark identity. Change to #3DDC84 if you would
-     rather the mobile browser chrome matched the green of the mark. -->
-<meta name="theme-color" content="#121216">
+<!-- No theme-color tag here, deliberately. Cayman's _layouts/default.html
+     hardcodes <meta name="theme-color" content="#157878"> BEFORE the
+     head-custom include, and HTML specifies that theme-color uses the FIRST
+     parseable value (CSSWG resolved 2020-06-24 that color-scheme follows the
+     same rule; Blink was patched to match). A second tag here would therefore
+     be silently ignored and the site would keep Cayman's teal -- a no-op that
+     looks like it works. To actually change the colour you must copy
+     _layouts/default.html into the repo and edit it, which pins the layout and
+     stops it tracking upstream theme updates. Not worth it for a chrome tint.
+     See https://github.com/w3c/csswg-drafts/issues/3846 -->
